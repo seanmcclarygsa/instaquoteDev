@@ -1,0 +1,23 @@
+{
+  "source": {
+    "type": "googlesheets",
+    "credentials_file": "/Users/steventsouza/.kettle/client_secret.json",
+    "spreadsheet_id": "18VF0mB6usVkorgCULDqd4Ib9UrWf8MnaqYxrtnYcsvo",
+    "header_index": 3,
+    "data_index": 4,
+    "header" : {
+      "formatters" : [
+        {"type": "uppercase"},
+        {"type": "lowercase"},
+        {"type": "replace", "valid_regex":"[^A-Za-z0-9_]+", "replace_with": "x"},
+        {"type": "width", "size": 4}
+      ]
+    },
+    "sheet": "Sheet2"
+  },
+  "destination": {
+    "type" : "db",
+    "url" : "sqlite://",
+    "table": "mytable"
+  }
+}

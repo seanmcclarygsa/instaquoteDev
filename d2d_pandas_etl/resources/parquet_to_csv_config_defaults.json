@@ -1,0 +1,10 @@
+{
+  "source": {
+    "type": "parquet",
+    "file": "resources/userdata1.parquet"
+  },
+  "destination": {
+    "type" : "csv",
+    "file" : "resources/parquet_userdata_output.csv"
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "debug": true,
+  "source": {
+    "type": "memory"
+  },
+  "destination": {
+    "type" : "db",
+    "url" : "mysql+pymysql://root:root@localhost/delme",
+    "table": "mytable_deletefirst",
+    "if_exists": "overwrite"
+  }
+}

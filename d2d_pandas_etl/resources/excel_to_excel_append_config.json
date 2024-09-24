@@ -1,0 +1,15 @@
+{
+  "source": {
+    "type": "excel",
+    "file": "resources/python_excel_test.xlsx",
+    "sheet": "Sheet1"
+  },
+  "destination": {
+    "type" : "excel",
+    "file": "resources/python_excel_test_output.xlsx",
+    "mode": "a",
+    "sheet": "Sheet1",
+    "date_format": "mm-dd-yyyy",
+    "datetime_format": "mm-dd-yyyy hh:mm:ss"
+  }
+}

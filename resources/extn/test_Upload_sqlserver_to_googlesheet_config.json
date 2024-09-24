@@ -1,0 +1,18 @@
+{
+  "source": {
+    "type" : "db",
+    "url" : "mssql+pyodbc://BODDBServer",
+    "table": "",
+    "query": "select NSN, UNITPRICE, VENDORNAME, CONTRNUMBER, DARO, MINORDTHRESH, VALIDUNTIL, FOB, MOP, RPTOFF, FARPART, HORC, INSTAQUOTE, LPP, CO, BUYERCODE, COWARRANTLEVEL, BUYERNAME, QUOTEDVSLPP, MFRNAMEQUOTED, MFRPNQUOTED, ITEMDESC, UOI, CAGECODE, EXCLUSIONREASON,MATCHDESC from QS_QUERY.dbo.instaQuotes_staging",
+    "chunksize": 100,
+    "date_coercion": false
+  },
+   "destination": {
+	"type": "googlesheets",
+    "date_coercion": false,
+    "credentials_file": "auth/gsa.gov_api-project-673153394971-d38e0ee051e1.json",
+    "spreadsheet_id": "1ar1_Tn-0LjWCs7TaNnO8X0JCNwn_Xkqzjb3IexqONJA",
+    "sheet": "Staging",
+    "overwrite_or_append": "OVERWRITE"
+  }
+}

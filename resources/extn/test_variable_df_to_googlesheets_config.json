@@ -1,0 +1,12 @@
+{
+  "source": {
+    "type" : "noop"
+  },
+  "destination": {
+	"type": "googlesheets",
+    "date_coercion": false,
+    "credentials_file": "auth/gsa.gov_api-project-673153394971-d38e0ee051e1.json",
+    "spreadsheet_id": "${GACA_GoogleSheetID}",
+    "sheet": "${GACA_OutputTabName}"
+  }
+}

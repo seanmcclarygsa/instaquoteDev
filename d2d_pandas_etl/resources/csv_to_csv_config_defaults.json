@@ -1,0 +1,10 @@
+{
+  "source": {
+    "type": "csv",
+    "file": "resources/names.csv"
+  },
+  "destination": {
+    "type" : "csv",
+    "file" : "resources/names_output.csv"
+  }
+}

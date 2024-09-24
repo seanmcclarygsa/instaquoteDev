@@ -1,0 +1,20 @@
+{
+  "source": {
+    "type": "googlesheets",
+    "date_coercion": false,
+    "credentials_file": "auth/gsa.gov_api-project-673153394971-d38e0ee051e1.json",
+    "spreadsheet_id": "1CWJgCRbV4p1VfGPLCpbbrz8cvYyA5mNfGq6g4P4nPOM",
+    "header": {
+      "columns": ["MFRNAME","MFRPN","UOI"]
+    },
+    "sheet": "Quote Sheet!A1:C100"
+  },
+  "destination": {
+    "type" : "db",
+    "url" : "mssql+pyodbc://BODDBServer",
+    "table": "sattest",
+    "chunksize": 10
+  },
+  "comment":["MFRNAME","MFRPN","UOI","PKGQTY","UNITPRICE","VENDORNAME","CONTRNUMBER","DARO","MINORDTHRESH","VALIDUNTIL","FOB","ITEMDESC","MAS_OM","COO"],
+  "notes":"The chunksize and the method multi failed.  Multi failed due to the MFRPN being construed as a int when it is a varchar"
+}

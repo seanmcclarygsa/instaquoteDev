@@ -1,0 +1,30 @@
+{
+  "category": {
+    "name": "quotes"
+    },
+  "source": {
+    "type": "${SourceType}",
+    "date_coercion": false,
+    "credentials_file": "auth/gsa.gov_api-project-673153394971-d38e0ee051e1.json",
+    "spreadsheet_id": "${GoogleSheetID}",
+    "header": {
+      "columns": ["MFRNAME", "VENDORCAGECODE", "MFRCAGECODE","SAMMFRNAME","MFRPN", "UOI", "PKGQTY", "UNITPRICE", "VENDORNAME", "MAS_OM", "CONTRNUMBER", "DARO", "MINORDTHRESH", "VALIDUNTIL", "FOB", "ITEMDESC", "COO", "QUOTEDATE"]
+    },
+    "sheet": "${SheetName}"
+  },
+  "destination": {
+    "type" : "csv",
+    "file" : "output/Quotes/${Vendor}_PN.tsv",
+    "delimiter" : "\t",
+    "float_format" : "%.2f",
+    "date_format": "%Y-%m-%d",
+    "index" : false
+  },
+ "cleandetails": { 
+     "stringColumns":["MFRNAME", "VENDORCAGECODE", "MFRCAGECODE", "SAMMFRNAME", "MFRPN", "UOI", "PKGQTY", "VENDORNAME", "MAS_OM", "CONTRNUMBER", "FOB", "ITEMDESC", "COO"],
+     "decimalColumns":["UNITPRICE", "MINORDTHRESH"],
+     "dropRowsWhenColumnsEmpty": ["UNITPRICE", "MFRNAME", "MFRPN", "UOI", "MAS_OM", "DARO"],
+     "integerColumns": ["DARO"],
+     "droptab": false
+  }
+ }

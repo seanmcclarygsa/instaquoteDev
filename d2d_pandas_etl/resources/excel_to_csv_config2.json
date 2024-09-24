@@ -1,0 +1,17 @@
+{
+  "source": {
+    "type": "excel",
+    "file": "resources/python_excel_test.xlsx",
+    "sheet": "Sheet1"
+  },
+  "destination": {
+    "type" : "csv",
+    "file" : "resources/python_excel_test.csv",
+    "delimiter" : "\t",
+    "float_format" : "%.4f",
+    "date_format": "%Y-%m-%d",
+    "columns": ["date_col","float_col"],
+    "index": false,
+    "chunksize": 10
+  }
+}

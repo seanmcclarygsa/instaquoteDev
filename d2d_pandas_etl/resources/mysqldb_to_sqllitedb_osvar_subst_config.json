@@ -1,0 +1,12 @@
+{
+  "source": {
+    "type": "db",
+    "url" : "mysql+pymysql://${USER}:${PASSWORD}@localhost/${DATABASE}",
+    "query": "select * from mytable"
+  },
+  "destination": {
+    "type" : "db",
+    "url" : "sqlite://",
+    "table": "mytable"
+  }
+}

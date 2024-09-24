@@ -1,0 +1,50 @@
+{ 
+  "processing": {
+    "scope_complete_partial": "complete"
+    },
+  "conversion": {
+    "isneeded": true,
+    "json_gs_nsn": "resources/extn/test_variable_NSN_googlesheet_to_tsv_config.json",
+    "json_gs_pn": "resources/extn/test_variable_PN_googlesheet_to_tsv_config.json",
+    "json_xl_nsn":"resources/extn/test_variable_NSN_excel_to_tsv_config.json",
+    "json_xl_pn": "resources/extn/test_variable_PN_excel_to_tsv_config.json"
+    },
+  "source": {
+    "type": "googlesheets",
+    "date_coercion": false,
+    "credentials_file": "auth/gsa.gov_api-project-673153394971-d38e0ee051e1.json",
+    "spreadsheet_id": "1e-arvGYI7rRjp-I0OwpZiU1z0vQGr-PaGKXf0qvDxNA",
+    "sheet_list": "Lookups!B2",
+    "sheet_mappingList": "Lookups!B3"
+  },
+  "destination": {
+    "type" : "noop"
+  },
+  "copy": {
+     "isneeded": false,
+     "file_ext": ".tsv",
+     "src_dir_quotes": "output\\quotes\\",
+     "src_dir_mappings":"output\\mappings\\",
+     "dest_dir_quotes": "Z:\\DATALOAD\\Automation\\R6_Instaquote\\Quotes\\",
+     "dest_dir_mappings": "Z:\\DATALOAD\\Automation\\R6_Instaquote\\Mappings\\"
+  },
+  "clean": {
+     "isneeded": true
+  },
+  "spexec": {
+    "isneeded": true,
+    "spname" : "sp_instaQuoteProcessor",
+    "spLogName" : "sp_updateInstaQuoteLog",
+    "url" : "mssql+pyodbc://BODDBServer"
+  },
+  "retrieveProcessedData": {
+    "isneeded": true,
+    "json_data_to_gs": "resources/extn/test_Upload_sqlserver_to_googlesheet_config.json",
+    "json_excluded_data_to_gs": "resources/extn/test_Upload_ExcludedData_sqlserver_to_googlesheet_config.json"
+  },
+  "onlyErrorLogging": {
+   "moduleList" : "pandas_etl,googleapiclient.discovery_cache"
+  },
+  "notes": "Replace_type if not specified or not incremental will do a clean of the table before inserting.  Else it will only insert; "
+    
+ }

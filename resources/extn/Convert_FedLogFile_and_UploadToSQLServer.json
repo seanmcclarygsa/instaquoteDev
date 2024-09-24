@@ -1,0 +1,15 @@
+{
+   "copy": {
+    "isneeded": true,
+    "file_ext": ".csv",
+    "orig_dir_mappings":"input\\FEDLOG\\",
+    "src_dir_mappings":"output\\FEDLOG\\",
+    "dest_dir_mappings": "Z:\\DATALOAD\\Automation\\R6_Instaquote\\FormatFiles\\",
+    "src_file_name": "NSN PN reference info FEDLOG.csv",
+    "output_file_name": "NSN PN reference info FEDLOG.csv"
+    
+   }, 
+   "onlyErrorLogging": {
+     "moduleList" : "pandas_etl,googleapiclient.discovery_cache"
+    }
+}

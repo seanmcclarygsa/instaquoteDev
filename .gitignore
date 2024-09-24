@@ -1,0 +1,9 @@
+
+*.ini
+*.bak
+*.pickle
+auth/*
+input/*
+output/*
+logs/*
+

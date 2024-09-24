@@ -1,0 +1,10 @@
+{
+  "source": {
+    "type": "csv",
+    "file": "s3://jamonapi/customers.csv"
+  },
+  "destination": {
+    "type" : "csv",
+    "file" : "resources/names_output.csv"
+  }
+}

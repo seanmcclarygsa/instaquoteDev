@@ -1,0 +1,17 @@
+{
+  "source": {
+    "type": "db",
+    "date_coercion": false,
+    "url" : "mysql+pymysql://${DB_USER}:${DB_PASSWORD}@${DB_HOST}/${DB_DBNAME}",
+    "query" : "SELECT * FROM ${DB_TABLE}"
+  },
+  "destination": {
+    "type": "googlesheets",
+    "credentials_file": "creds.json",
+    "spreadsheet_id": "${GSHEET_ID}",
+    "sheet": "${GSHEET_TAB}",
+    "value_input_option": "RAW",
+    "overwrite_or_append": "OVERWRITE"
+  }
+}
+

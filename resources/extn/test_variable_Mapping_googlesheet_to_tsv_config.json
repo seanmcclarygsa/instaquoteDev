@@ -1,0 +1,30 @@
+{
+  "category": {
+    "name": "lookups"
+    },
+  "source": {
+    "type": "${SourceType}",
+    "date_coercion": false,
+    "credentials_file": "auth/gsa.gov_api-project-673153394971-d38e0ee051e1.json",
+    "spreadsheet_id": "${GoogleSheetID}",
+    "header": {
+      "columns": ["NSN", "NSNContactor", "Manufacturer", "ManufacturerPN", "Contract Load"]
+    },
+    "sheet": "${SheetName}"
+  },
+  "destination": {
+    "type" : "csv",
+    "file" : "output/Mappings/${name}.tsv",
+    "delimiter" : "\t",
+    "float_format" : "%.2f",
+    "date_format": "%Y-%m-%d",
+    "index" : false
+  },
+ "cleandetails": {
+     "stringColumns":["NSN", "NSNContactor", "Manufacturer", "ManufacturerPN", "Contract Load"],
+     "decimalColumns":[],
+     "dropRowsWhenColumnsEmpty": ["NSN", "ManufacturerPN"],
+     "integerColumns": [],
+     "droptab": false
+  }
+ }

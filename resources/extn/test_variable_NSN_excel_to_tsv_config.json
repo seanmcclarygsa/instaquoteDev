@@ -1,0 +1,22 @@
+{
+  "source": {
+    "type": "${GACA_SourceType}",
+    "date_coercion": false,
+    "file": "${GACA_FilePath}",
+    "header": {
+      "columns": ["NSN","UOI","PKGQTY","UNITPRICE","VENDORNAME","CONTRNUMBER","DARO","MINORDTHRESH","VALIDUNTIL","FOB","MFRNAMEQUOTED","MFRPNQUOTED","COO"]
+    },
+    "sheet": "${GACA_SheetName}",
+    "usecols": "A:K"
+  },
+  "destination": {
+    "type" : "csv",
+    "file" : "output/${GACA_Vendor}_NSN.tsv",
+    "delimiter" : "\t",
+    "float_format" : "%.2f",
+    "date_format": "%Y-%m-%d",
+    "index" : false
+  }
+ }
+
+ 

@@ -1,0 +1,13 @@
+{
+  "source": {
+    "type": "memory",
+    "header": {
+      "columns": ["cola","colb","colc","cold"]
+    }
+  },
+  "destination": {
+    "type" : "db",
+    "url" : "sqlite://",
+    "table": "mytable"
+  }
+}

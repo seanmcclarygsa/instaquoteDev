@@ -1,0 +1,45 @@
+<?xml version="1.0"?>  
+<BCPFORMAT xmlns="http://schemas.microsoft.com/sqlserver/2004/bulkload/format" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">  
+ <RECORD>  
+	<FIELD ID="1"  xsi:type="CharTerm" TERMINATOR="\t"   MAX_LENGTH="350"/> 
+	<FIELD ID="2"  xsi:type="CharTerm" TERMINATOR="\t"   MAX_LENGTH="15"/>
+	<FIELD ID="3"  xsi:type="CharTerm" TERMINATOR="\t"   MAX_LENGTH="15"/>
+	<FIELD ID="4"  xsi:type="CharTerm" TERMINATOR="\t"   MAX_LENGTH="350"/>
+	<FIELD ID="5"  xsi:type="CharTerm" TERMINATOR="\t"   MAX_LENGTH="50"/> 
+	<FIELD ID="6"  xsi:type="CharTerm" TERMINATOR="\t"   MAX_LENGTH="20"/>
+	<FIELD ID="7"  xsi:type="CharTerm" TERMINATOR="\t"   MAX_LENGTH="50"/>
+	<FIELD ID="8"  xsi:type="CharTerm" TERMINATOR="\t"   MAX_LENGTH="12"/>
+	<FIELD ID="9"  xsi:type="CharTerm" TERMINATOR="\t"   MAX_LENGTH="75"/>
+	<FIELD ID="10"  xsi:type="CharTerm" TERMINATOR="\t"   MAX_LENGTH="5"/>
+	<FIELD ID="11" xsi:type="CharTerm" TERMINATOR="\t"   MAX_LENGTH="15"/> 
+	<FIELD ID="12" xsi:type="CharTerm" TERMINATOR="\t"   MAX_LENGTH="10"/> 
+	<FIELD ID="13" xsi:type="CharTerm" TERMINATOR="\t"   MAX_LENGTH="12"/> 
+	<FIELD ID="14" xsi:type="CharTerm" TERMINATOR="\t"   MAX_LENGTH="20"/> 
+	<FIELD ID="15" xsi:type="CharTerm" TERMINATOR="\t"   MAX_LENGTH="5"/> 
+	<FIELD ID="16" xsi:type="CharTerm" TERMINATOR="\t"   MAX_LENGTH="500"/> 
+	<FIELD ID="17" xsi:type="CharTerm" TERMINATOR="\t"   MAX_LENGTH="60"/>
+	<FIELD ID="18" xsi:type="CharTerm" TERMINATOR="\t"   MAX_LENGTH="20"/>
+	<FIELD ID="19" xsi:type="CharTerm" TERMINATOR="\r\n" MAX_LENGTH="10" COLLATION="SQL_Latin1_General_CP1_CI_AS"/>  
+ </RECORD>  
+ <ROW>  
+	<COLUMN SOURCE="1"   NAME="MFRNAME"      xsi:type="SQLNVARCHAR"/>
+	<COLUMN SOURCE="2"   NAME="VENDORCAGECODE"     xsi:type="SQLNVARCHAR"/>
+	<COLUMN SOURCE="3"   NAME="MFRCAGECODE"     xsi:type="SQLNVARCHAR"/>
+	<COLUMN SOURCE="4"   NAME="SAMMFRNAME"   xsi:type="SQLNVARCHAR"/>    
+	<COLUMN SOURCE="5"   NAME="MFRPN"        xsi:type="SQLNVARCHAR"/>  
+	<COLUMN SOURCE="6"   NAME="UOI"          xsi:type="SQLNVARCHAR"/>
+	<COLUMN SOURCE="7"   NAME="PKGQTY"       xsi:type="SQLNVARCHAR"/>
+	<COLUMN SOURCE="8"   NAME="UNITPRICE"    xsi:type="SQLNVARCHAR"/>  
+	<COLUMN SOURCE="9"   NAME="VENDORNAME"   xsi:type="SQLNVARCHAR"/> 
+	<COLUMN SOURCE="10"   NAME="MAS_OM"       xsi:type="SQLNVARCHAR"/> 	
+	<COLUMN SOURCE="11"  NAME="CONTRNUMBER"  xsi:type="SQLNVARCHAR"/>  
+	<COLUMN SOURCE="12"  NAME="DARO"         xsi:type="SQLSMALLINT"/>  
+	<COLUMN SOURCE="13"  NAME="MINORDTHRESH" xsi:type="SQLNVARCHAR"/>  
+	<COLUMN SOURCE="14"  NAME="VALIDUNTIL"   xsi:type="SQLNVARCHAR"/>  
+	<COLUMN SOURCE="15"  NAME="FOB"          xsi:type="SQLNVARCHAR"/>  
+	<COLUMN SOURCE="16"  NAME="ITEMDESC"     xsi:type="SQLNVARCHAR"/>  
+	<COLUMN SOURCE="17"  NAME="COO"          xsi:type="SQLNVARCHAR"/> 
+	<COLUMN SOURCE="18"  NAME="QUOTEDATE"    xsi:type="SQLNVARCHAR"/>
+	<COLUMN SOURCE="19"  NAME="ITEMTYPE"     xsi:type="SQLNVARCHAR"/>
+ </ROW>		
+</BCPFORMAT> 

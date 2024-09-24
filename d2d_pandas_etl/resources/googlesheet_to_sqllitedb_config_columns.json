@@ -1,0 +1,17 @@
+{
+  "source": {
+    "type": "googlesheets",
+    "credentials_file": "/Users/steventsouza/.kettle/client_secret.json",
+    "spreadsheet_id": "18VF0mB6usVkorgCULDqd4Ib9UrWf8MnaqYxrtnYcsvo",
+    "data_index": 4,
+    "header": {
+      "columns": ["cola","colb","colc","cold"]
+    },
+    "sheet": "Sheet2"
+  },
+  "destination": {
+    "type" : "db",
+    "url" : "sqlite://",
+    "table": "mytable"
+  }
+}
