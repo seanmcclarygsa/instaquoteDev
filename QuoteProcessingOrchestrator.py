@@ -4,9 +4,40 @@ Created on Fri Jun 10, 2022
 
 @author: SatishVenkataraman
 """
+
+import re
+import logging
+
+def validate_nsn(nsn_input):
+    original_nsn = nsn_input  # Keep a copy of the original input for logging
+    
+    # Trim any leading or trailing spaces
+    nsn_input = nsn_input.strip()
+    
+    # Check for leading/trailing spaces
+    if original_nsn != nsn_input:
+        logging.warning(f"NSN input had leading or trailing spaces: '{{original_nsn}}'")
+    
+    # Remove any non-digit characters (spaces, special characters, etc.)
+    cleaned_nsn = re.sub(r'\D', '', nsn_input)
+    
+    # Log if non-digit characters were removed
+    if len(cleaned_nsn) != len(nsn_input):
+        logging.warning(f"NSN input contained non-digit characters: '{{original_nsn}}'")
+
+    # Check if the cleaned NSN has exactly 13 digits
+    if len(cleaned_nsn) == 13:
+        logging.info(f"Valid NSN after cleaning: '{{cleaned_nsn}}'")
+        return cleaned_nsn
+    else:
+        # Log specific cases of too many or too few digits
+        if len(cleaned_nsn) > 13:
+            raise ValueError(f"Invalid NSN: '{{original_nsn}}'. NSN contains too many digits after cleaning. Should be 13 digits.")
+        elif len(cleaned_nsn) < 13:
+            raise ValueError(f"Invalid NSN: '{{original_nsn}}'. NSN contains too few digits after cleaning. Should be 13 digits.")
 import sys
 from pandas import DataFrame
-import pandas_etl as pe
+from d2d_pandas_etl import pandas_etl as pe
 from d2d_pandas_etl import utils as ut
 import sqlite3
 
@@ -286,8 +317,8 @@ class QuoteProcessingOrchestrator:
                 gaca_config = ut.load_json("resources/extn/test_Upload_sqlserver_to_googlesheet_config.json")
                 query = gaca_config['source'].get('query')
 
-    #Read the google sheet Instaquote Processor List
-    #(https://docs.google.com/spreadsheets/d/1e-arvGYI7rRjp-I0OwpZiU1z0vQGr-PaGKXf0qvDxNA/edit#gid=0)
+    #Read the google sheet Instaquote Processor List Test enviorment
+    #(https://docs.google.com/spreadsheets/d/1dA7p-SeQI0o8Q5GqAqxbIwwZqoOuhugV18JykXDXmAY/edit?gid=0#gid=0)
     #iterate through it line by line
     #get values in the sheet as variables
     #pass those variables to the config file to
@@ -334,6 +365,15 @@ class QuoteProcessingOrchestrator:
                             if itemType == "PN":
                                 configjson = json_gs_pn
                             elif itemType == "NSN":
+        try:
+            nsn_input = row['NSN']  # Get NSN from the row
+            valid_nsn = validate_nsn(nsn_input)  # Validate the NSN
+            row['NSN'] = valid_nsn  # Replace the NSN in the row with the validated one
+
+        except ValueError as e:
+            logging.error(f"NSN validation error at row {index}: {e}")
+            sendEmail("NSN Validation Error", f"Error at row {index}: {e}")
+            continue  # Skip the row if NSN is invalid
                                 configjson = json_gs_nsn
                         elif sourceType == "excel":
                             filePath = row['FilePath']
@@ -342,6 +382,15 @@ class QuoteProcessingOrchestrator:
                             if itemType == "PN":
                                 configjson = json_xl_pn
                             elif itemType == "NSN":
+        try:
+            nsn_input = row['NSN']  # Get NSN from the row
+            valid_nsn = validate_nsn(nsn_input)  # Validate the NSN
+            row['NSN'] = valid_nsn  # Replace the NSN in the row with the validated one
+
+        except ValueError as e:
+            logging.error(f"NSN validation error at row {index}: {e}")
+            sendEmail("NSN Validation Error", f"Error at row {index}: {e}")
+            continue  # Skip the row if NSN is invalid
                                 configjson = json_xl_nsn
                         #Loads the config and substitute variables with values
                         config = ut.load_json(configjson)
